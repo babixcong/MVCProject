@@ -1,5 +1,5 @@
 <?php 
-	SecureSession(0,'/', 'localhost',true,true);
+	SecureSession(time()+60,'/', 'localhost',false,true);
 	require_once("models/user.php");
 	require_once("controllers/BaseController.php");
 	class UserController extends BaseController{
@@ -36,7 +36,7 @@
 					if($count == 1){
 						$unam = $row['username'];
 						if (isset($_POST['remember'])) {
-							setcookie('usercookie',$unam,time()+3600);
+							setcookie('usercookie',$unam,time()+3600,'/',null,null,true);
 							echo "da set cookie";
 						}
 						$_SESSION['user'] = $unam;
@@ -45,17 +45,19 @@
 					}
 					else{
 						$err = "Incorrect Username or Password";
-						//require_once("views/user/login.php");
+						session_destroy();
 						$data = array('err'=>$err);
 						$this->show('login', $data);
 					}
 				}else{
 					$err = "Incorrect Username or Password";
+					session_destroy();
 					$data = array('err'=>$err);
 					$this->show('login', $data);
 				}
 			} else {
 				$err = "Login first";
+				session_destroy();
 				$data = array('err'=>$err);
 				$this->show('login', $data);
 			}
@@ -65,7 +67,7 @@
 		public function logout(){
 			session_destroy();  
 			if(isset($_COOKIE['usercookie'])){
- 				setcookie('usercookie','',-1);
+ 				setcookie('usercookie','',-1,'/',null,null,true);
 			}
 			header("location: index.php?controller=User&action=login");
 		}
@@ -87,6 +89,4 @@
 	}
 
  ?>
- <script type="text/javascript">
- 	alert(document.cookie);
- </script>
+ 

@@ -2,8 +2,10 @@
 	session_set_cookie_params(0,'/','localhost',true,true);
 	session_start();
 	if(!isset($_SESSION['user'])){
+		session_destroy();
 		header("location: index.php?controller=User&action=login");
 	}
+	
 ?>
 <!DOCTYPE html>
 <html>

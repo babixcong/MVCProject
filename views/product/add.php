@@ -2,6 +2,7 @@
 	session_set_cookie_params(0,'/','localhost',true,true);
 	session_start();
 	if (!isset($_SESSION['user'])) {
+		session_destroy();
 		header("location: index.php?controller=User&action=login");
 	}
  ?>
@@ -14,7 +15,7 @@
 <body>
 	<div>
 		<div style="font-size: 20px;">Hello, <span style="font-style: italic;"><?php echo $_SESSION['user'] ?></span></div>
-		<div><a href="index.php?controller=User&action=logout"><button>Log out</button></a></div>
+		<div><a href="index.php?controller=User&action=logout" onclick="return confirm('Log out?')"><button>Log out</button></a></div>
 	</div>
 	<div align="center">
 		<div style="margin-top: 50px;"><h2 style="text-transform: uppercase;letter-spacing: 2px;">Add product</h2></div>
