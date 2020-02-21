@@ -9,7 +9,7 @@
 			$this->folder = 'user' ;
 			$this->user = new User();
 		}	
-		public function login(){
+		public function login2(){
 			if(isset($_SESSION['user'])){
 				header("location: index.php?controller=Product&action=all");
 				exit();
@@ -47,19 +47,19 @@
 						$err = "Incorrect Username or Password";
 						session_destroy();
 						$data = array('err'=>$err);
-						$this->show('login', $data);
+						$this->show('login2', $data);
 					}
 				}else{
 					$err = "Incorrect Username or Password";
 					session_destroy();
 					$data = array('err'=>$err);
-					$this->show('login', $data);
+					$this->show('login2', $data);
 				}
 			} else {
 				$err = "Login first";
 				session_destroy();
 				$data = array('err'=>$err);
-				$this->show('login', $data);
+				$this->show('login2', $data);
 			}
 
 		}
@@ -69,7 +69,7 @@
 			if(isset($_COOKIE['usercookie'])){
  				setcookie('usercookie','',-1,'/',null,null,true);
 			}
-			header("location: index.php?controller=User&action=login");
+			header("location: index.php?controller=User&action=login2");
 		}
 
 		public function error(){

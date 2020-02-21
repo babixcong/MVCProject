@@ -8,7 +8,7 @@ if (isset($_GET['controller'])) {
   	}
 } else {
  	$controller = 'User';
-  	$action = 'login';
+  	$action = 'login2';
 }
 require_once('routes.php');
 ?>

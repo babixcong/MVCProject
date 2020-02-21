@@ -68,7 +68,7 @@
 		}
 		public function delete(){
 			$this->product->deleteProduct(check_input($_GET['id']));
-			header('location: index.php?controller=Product&action=all');
+			header("location: index.php?controller=Product&action=all");
 		}
 	}
 	function check_input($input){

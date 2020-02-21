@@ -1,9 +1,9 @@
 <?php 
-	session_set_cookie_params(0,'/','localhost',true,true);
+	//session_set_cookie_params(0,'/','localhost',true,true);
 	session_start();
 	if(!isset($_SESSION['user'])){
 		session_destroy();
-		header("location: index.php?controller=User&action=login");
+		header("location: index.php?controller=User&action=login2");
 	}
 	
 ?>
@@ -22,16 +22,18 @@
 		<div style="width: 800px;border: 2px red dotted;text-align: left;padding-left: 40px;margin-top: 50px;">
 			<table>
 				<tr>
-					<td style="padding-right: 40px;">ID</td>
+					<td style="padding-right: 40px;">STT</td>
 					<td style="padding-right: 150px;">Name</td>
 					<td style="padding-right: 70px;">Category</td>
 					<td style="padding-right: 70px;">Producer</td>
 					<td style="padding-right: 60px;">Edit</td>
 					<td style="padding-right: 60px;">Delete</td>
 				</tr>
-				<?php foreach ($products as $product) { ?>
+				<?php 
+					$i = 1;
+				foreach ($products as $product) { ?>
 					<tr>
-						<td><?php echo $product['p_id']; ?></td>
+						<td><?php echo $i++; ?></td>
 						<td><?php echo $product['p_name']; ?></td>
 						<td><?php echo $product['p_category']; ?></td>
 						<td><?php echo $product['p_producer']; ?></td>

@@ -3,7 +3,7 @@
 	session_start();
 	if (!isset($_SESSION['user'])) {
 		session_destroy();
-		header("location: index.php?controller=User&action=login");
+		header("location: index.php?controller=User&action=login2");
 	}
  ?>
 <!DOCTYPE html>
