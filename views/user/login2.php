@@ -34,7 +34,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" action="<?php echo htmlspecialchars('') ?>" method="POST">
 					<span class="login100-form-title p-b-43">
-						Login to continue
+						Login to continue :D
 					</span>
 						
 					<div class="wrap-input100 validate-input">
@@ -58,18 +58,12 @@
 							</label>
 						</div>
 					</div>
-			
-
 					<div class="container-login100-form-btn">
-						<input type="submit" name="login" class="login100-form-btn" value="Login">
-						
-							
-						
+						<input type="submit" name="login" class="login100-form-btn" value="Login">	
 					</div>
-					
 				</form>
 
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');">
+				<div class="login100-more" style="background-image: url('images/nasa-Q1p7bh3SHj8-unsplash.jpg');">
 				</div>
 			</div>
 		</div>

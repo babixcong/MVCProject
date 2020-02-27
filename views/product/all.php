@@ -1,11 +1,11 @@
-<?php 
-	//session_set_cookie_params(0,'/','localhost',true,true);
+<?php
+	session_set_cookie_params(0,'/','localhost',true,true);
 	session_start();
 	if(!isset($_SESSION['user'])){
 		session_destroy();
 		header("location: index.php?controller=User&action=login2");
 	}
-	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +29,7 @@
 					<td style="padding-right: 60px;">Edit</td>
 					<td style="padding-right: 60px;">Delete</td>
 				</tr>
-				<?php 
+				<?php
 					$i = 1;
 				foreach ($products as $product) { ?>
 					<tr>
